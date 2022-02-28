@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Musik</title>
+
+    <style>
+        body {
+            background-color: #eaf7df;
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        header {
+            width: 100%;
+        }
+
+        #container {
+            width: 100%;
+            padding: 15px;
+        }
+
+        #content {
+            background: #B4C6A6;
+            width: 75%;
+            float: left;
+            overflow: -moz-hidden-unscrollable;
+            margin-bottom: 20px;
+        }
+
+        #sidebar {
+            background: #acbba0;
+            width: 20%;
+            padding: 20px;
+            box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+            float: right;
+        }
+
+        footer {
+            background-color: #acbba0;
+            text-align: center;
+            width: auto;
+            clear: both;
+            padding: 20px;
+
+        }
+
+        .box {
+            margin: auto;
+            flex-grow: 1;
+        }
+
+        h1 {
+            font-family: Segoe UI;
+        }
+
+        h2 {
+            font-family: Segoe UI;
+        }
+
+        h3 {
+            font-family: Candara;
+        }
+
+        p {
+            font-family: Candara;
+            text-align: justify;
+
+        }
+
+        li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .featured-image {
+            width: 50%;
+            max-height: 300px;
+            object-fit: cover;
+            object-position: unset;
+        }
+
+        .profile-img {
+            width: 100px;
+        }
+
+        .card {
+            box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #B4C6A6;
+        }
+
+        .website {
+            font-size: 20px;
+            padding-top: 200px;
+            padding-bottom: 200px;
+            background-image: url('assets/image/buku.jpg');
+            width: auto;
+            height: 50px;
+            text-align: center;
+            color: white;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        nav li {
+            display: inline;
+            list-style-type: none;
+            margin-right: 20px;
+        }
+
+        nav {
+            background-color: #66806A;
+            padding: 5px;
+            text-align: right;
+            position: sticky;
+            top: 0;
+            left: 0;
+            overflow: auto;
+        }
+
+        nav ul a {
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            margin-top: 30px;
+
+
+        }
+
+        .logo {
+            float: left;
+            height: 45px;
+
+        }
+
+        .icon-menu img {
+            height: 45px;
+        }
+
+
+        div.gallery {
+            margin: 5px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 180px;
+            height: 220px;
+        }
+
+        div.gallery:hover {
+            border: 1px solid #777;
+        }
+
+        div.gallery img {
+            width: 100%;
+            height: 110px;
+        }
+
+        div.desc {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .pojok-baca {
+            height: 230px;
+        }
+
+        /* max-width 600px => ukuran 600px kebawah */
+        @media screen and (max-width: 600px) {
+            .list-menu {
+                float: right;
+                display: none;
+            }
+
+            #content {
+                background: #B4C6A6;
+                width: 90%;
+                /* height: 700px; */
+                float: none;
+                overflow: -moz-hidden-unscrollable;
+                margin-bottom: 20px;
+            }
+
+            #sidebar {
+                background: #acbba0;
+                width: 80%;
+                /* height: 400px; */
+                padding: 20px;
+                box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+                float: none;
+            }
+
+            .pojok-baca {
+                height: 910px;
+            }
+
+            .denger-musik {
+                width: 100%;
+                height: auto;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            audio {
+                width: 50%;
+            }
+        }
+
+        /* 600px ke atas */
+        @media screen and (min-width: 600px) {
+            .icon-menu {
+                display: none;
+            }
+
+            #content {
+                background: #B4C6A6;
+                width: 80%;
+                /* height: 700px; */
+                float: none;
+                overflow: -moz-hidden-unscrollable;
+                margin-bottom: 20px;
+            }
+
+            #sidebar {
+                background: #acbba0;
+                width: 80%;
+                /* height: 400px; */
+                padding: 20px;
+                box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+                float: none;
+            }
+
+            .pojok-baca {
+                height: 500px;
+            }
+
+
+            .denger-musik {
+                width: 100%;
+                height: auto;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            audio {
+                width: 50%;
+            }
+
+        }
+
+        /* 800px keatas */
+        @media screen and (min-width: 800px) {
+
+            #content {
+                /* background: #B4C6A6; */
+                width: 75%;
+                /* height: 700px; */
+                float: left;
+                /* overflow: -moz-hidden-unscrollable; */
+                margin-bottom: 40px;
+            }
+
+            #sidebar {
+                background: #acbba0;
+                width: 20%;
+                /* height: 400px; */
+                padding: 20px;
+                box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+                float: right;
+            }
+
+        }
+    </style>
+
+    <script>
+        function showMenu() {
+            if (document.getElementsByClassName("list-menu")[0].style.display == "block") {
+                document.getElementsByClassName("list-menu")[0].style.display = "none";
+            } else {
+                document.getElementsByClassName("list-menu")[0].style.display = "block";
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <nav>
+            <img class="logo" src="assets/image/logo.png" alt="logo">
+            <ul class="icon-menu">
+                <li>
+                    <a onclick="showMenu()">
+                        <img src="assets/image/menu.png" />
+                    </a>
+                </li>
+            </ul>
+            <ul class="list-menu">
+                <li><a href="#web">Beranda</a></li>
+                <li><a href="#pj">Pojok Baca</a></li>
+                <li><a href="#about">Tentang Kami</a></li>
+            </ul>
+        </nav>
+
+        <div id="web" class="website">
+            <h1 style="text-align: center;">Yuk, Baca!</h1>
+            <h5>Makin Sering Membaca, Makin Banyak Ilmunya</h5>
+
+            <div class="div"></div>
+        </div>
+
+    </header>
+
+    <main>
+        <div id="container" class="div">
+
+            <div id="content" class="box">
+
+                <article class="card">
+
+                    <h2 id="beranda" style="text-align: center;">Perkembangan Musik dari Waktu ke Waktu</h2>
+                    <hr class="section post-body">
+                    <img src="assets/image/ngemusik1.png" class="denger-musik" alt="Dengerin Musik">
+
+
+                    <p><i>Guys,</i> Ada yang suka mendengarkan musik? Bagi yang suka, coba deh
+                        <i>play</i> musik berikut ini.
+                    </p>
+
+                    <audio controls>
+                        <!-- <source src="horse.ogg" type="audio/ogg"> -->
+                        <source src="assets/Ollie-60Seconds.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+
+
+                    <p> Nah, Bagaimana? <i>suka ga?</i> Baguskan? Musik yang setiap hari kita dengarkan dan menjadi
+                        bagian dari kehidupan kita sehari-hari ternyata punya sejarahnya sendiri, <I>lho.</I>
+                        Lalu, Bagaimana ya sejarah musik ini bermula?
+                        <i>eits,</i> tapi sebelum itu, kamu sudah tahu belum apa defenisi dari musik?
+                        Menurut KBBI, musik dapat berarti nada atau irama yang disusun secara khusus, sehingga
+                        menghasilkan
+                        keharmonisan.
+                        Harmonis di sini mungkin akan berbeda, ya, tiap orang mendefinisikannya.
+                        Singkatnya mungkin gini, musik dapat mendorong kamu untuk merasakan 'sesuatu', baik itu rasa
+                        bersemangat
+                        atau bahkan perasaan galau.
+                    </p>
+
+                    <p>Hari Musik Sedunia diperingati setiap tanggal 21 Juni. Hari peringatan ini juga dikenal dengan
+                        Fete
+                        de la Musique yang menandai dimulainya musik festival di Prancis pada 1982 berdasarkan ide dari
+                        menteri
+                        budaya Prancis, Jack Lang. Namun, terdapat teori lain tentang asal muasal
+                        peringatan Hari Musik Sedunia bahwa musisi Amerika bernama Joel Cohen yang ternyata memiliki ide
+                        tentang perayaan musik semalaman di Prancis
+                        untuk menandai dimulainya titik balik matahari di musim panas pada 1976.</p>
+
+                    <section>
+
+                        <h3 id="medieval">1. Zaman Medieval (400-1400an)</h3>
+                        <img src="assets/image/medieval.jpg" class="featured-image" alt="Medieval">
+                        <p>
+                            Pada masa ini, di abad pertengahan, musik sangat dipengaruhi oleh kekuasaan gereja pada masa
+                            itu
+                            dan
+                            kemudian notasinya berkembang
+                            menjadi musical repertoire. Apa sih musical repertoire itu? Musical repertoire ialah
+                            kumpulan
+                            dari lembaran
+                            musik yang dimainkan
+                            secara individual, ensambel atau dimainkan dengan instrumen dan choir. Sayangnya,
+                            musik-musik
+                            dari masa ini
+                            rusak dan hanya tersisa
+                            bagian kecil saja. The Gregorian Chant merupakan salah satu dari lembaran musik terkenal di
+                            masa
+                            itu.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3 id="renaissance">2. Zaman Renaissance (1400-1600an)</h3>
+                        <img src="assets/image/renaissance.jpg" class="featured-image" alt="renaissance">
+                        <p>
+                            Pada masa ini, instrumen musik seperti piano atau organ sudah dikenal hingga muncul musik
+                            instrumen.
+                            Di kota Florence, Italia berkembang seni opera atau pembawaan musik dengan vokal diiringi
+                            instrumen musik.
+                            Pada masa ini juga, chords musik lebih fleksibel dan mudah untuk disesuaikan dengan gaya
+                            musisi
+                            itu sendiri.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3 id="barok">3. Zaman Barok (1600-1700an)</h3>
+                        <img src="assets/image/baroque.jpg" class="featured-image" alt="baroque">
+                        <p>
+                            Pada periode ini, jenis musik instrumen lebih dikenal secara umum. Para komposer musik
+                            memberikan
+                            improvisasi ke dalam hasil karyanya.
+                            Gaya bermusik para musisi lebih beragam. Terdapat aliran musik Rokoko pada periode ini.
+                            Perbedaan musik
+                            Barok dan Rokoko ialah musik Barok
+                            memakai Ornamentik yang membolehkan komposer memberikan improvisasi spontan pada karyanya,
+                            sedangkan musik
+                            Rokoko memiliki komposisi musik
+                            yang dekoratif, tapi tidak terlalu kompleks.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3 id="klasik">4. Zaman Klasik (1700-1910an)</h3>
+                        <img src="assets/image/classical pieces.jpg" class="featured-image" alt="classical pieces">
+                        <p>
+                            Klasik era (era klasik Barat) berhubungan erat dengan harmoni. Beberapa hasil karya dari
+                            masa
+                            ini merupakan
+                            hasil karya yang tidak dapat
+                            dibandingkan dengan karya apa pun pada masa sebelumnya, seperti karya Beethoven berjudul
+                            Fifth
+                            Symphony.
+                            Haydn dan Mozart adalah musisi
+                            yang menjadi 'kunci' di era ini. Di akhir era Klasik, musisi menggubah musik dengan tambahan
+                            instrumen
+                            selain piano, seperti klarinet,
+                            trombon, dan timpani.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3 id="romantik">5. Zaman Romantik (1810-1900an)</h3>
+                        <img src="assets/image/romantic music.jpg" class="featured-image" alt="romantic music">
+                        <p>
+                            Pada era ini, karya-karya pada era romantik memiliki komposisi perasaan emosi yang kuat dan
+                            makna yang
+                            dalam. Dari karya Schumann sampai Wagner,
+                            komposisi menjadi lebih kompleks sebagai simbol dari beberapa karya yang dramatis seperti
+                            Siegfried karya
+                            milik Wagner. Tidak lupa, Hector Berlioz
+                            dengan karyanya yang diberi judul "Symphonie Fantastique".
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3 id="kontemporer">6. Zaman Modern/Kontemporer (1900-2000an)</h3>
+                        <img src="assets/image/BCE.jpg" class="featured-image" alt="kontemporer">
+                        <p>
+                            Setelah penemuan radio, musik menjadi lebih sering terdengar oleh kita, begitu juga dengan
+                            televisi yang
+                            turut memengaruhi era ini,
+                            membawa musik menjadi produk dari budaya massa. Musik juga berevolusi hingga menciptakan
+                            berbagai jenis atau
+                            aliran musik,
+                            tempo atau bahkan temponya.
+                            <br>
+                            Kalau dibaca ulang dari atas, nih, kamu sadar kah, kalau sejarah musik condong mengarah ke
+                            dunia
+                            Barat?
+                            Nyatanya, musik sejak dulu
+                            sudah ada di berbagai belahan dunia. Di daratan Tiongkok, persisnya di provinsi Hubei,
+                            ditemukan
+                            alat musik
+                            kuno yang diperkirakan
+                            telah ada sejak tahun 433 SM. Selain itu, ditemukan pula alat musik seruling yang
+                            diperkirakan
+                            berasal dari
+                            era Neolitikum.
+                        </p>
+                    </section>
+
+                    <p>
+                        Nah! Segitu saja dulu info tentang sejarah musik. Ngomongin tentang musik saja bisa tambah
+                        pengetahuan kamu,
+                        ya.
+                        Kamu mau 'kan punya banyak pengetahuan dan ilmu? yuk, Baca lagi artikel menarik lainnya di "Yuk,
+                        Baca!"
+                        Makin sering membaca, makin banyak ilmunya.
+                    </p>
+
+                    <hr class="section post-body">
+
+                    <section id="pj" class="pojok-baca">
+                        <div class="gallery">
+                            <a target="_blank"
+                                href="https://www.alodokter.com/jangan-hanya-dinikmati-kenali-manfaat-musik-berikut-ini">
+                                <img src="assets/image/manfaat.jpg" alt="Cinque Terre" width="600" height="400">
+                            </a>
+                            <div class="desc">Manfaat Musik bagi Kesehatan yang Jarang Diketahui</div>
+                        </div>
+
+                        <div class="gallery">
+                            <a target="_blank" href="https://www.royco.co.id/Ide-Resep.html">
+                                <img src="assets/image/resep.jpeg" alt="Forest" width="600" height="400">
+                            </a>
+                            <div class="desc">Resep-resep lezat</div>
+                        </div>
+
+                        <div class="gallery">
+                            <a target="_blank" href="https://www.farmaku.com/artikel/simple-make-up-korea/">
+                                <img src="assets/image/makeup.jpg" alt="Northern Lights" width="600" height="400">
+                            </a>
+                            <div class="desc">Simple Make Up Korea Ala Bae Suzy, Pemeran Drama Start Up</div>
+                        </div>
+
+                        <div class="gallery">
+                            <a target="_blank"
+                                href="https://www.merdeka.com/jatim/cara-belajar-bahasa-korea-sendiri-dengan-cepat-dan-mudah-perhatikan-tipsnya-kln.html">
+                                <img src="assets/image/bakor.jpg" alt="Northern Lights" width="600" height="400">
+                            </a>
+                            <div class="desc">Cara Belajar Bahasa Korea Sendiri dengan Cepat dan Mudah, Perhatikan
+                                Tipsnya</div>
+                        </div>
+
+                    </section>
+
+                </article>
+
+
+
+            </div>
+
+
+            <div id="sidebar" class="box">
+                <aside>
+                    <div class="profile">
+                        <h4 id="about" style="text-align: center;">Tentang Kami</h4>
+                        <figure style="text-align: center;">
+                            <img src="assets/image/ayay.jpg" class="profile-img" alt="Admin Yuk, Baca">
+                            <figcaption>Admin. Yuk, Baca!</figcaption>
+                        </figure>
+                        <div class="desc">
+                            <p style="text-align:justify;">
+                                Nama &nbsp; : Namamu <br>
+                                Asal Kampus &nbsp; : Asal kampusmu <br>
+                                Jurusan &nbsp;: jurusanmu <br>
+
+                            </p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+
+        </div>
+    </main>
+
+    <footer>
+        <p>©
+            <script>
+                document.write(new Date().getFullYear());
+            </script>
+            Yuk, Baca!
+        </p>
+    </footer>
+
+
+</body>
+
+</html>
